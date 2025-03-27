@@ -29,7 +29,7 @@ function Navigator() {
                     </>
                 ) : (
                     <>
-                        <div>Logeate</div>
+                        <div>Log In</div>
                     </>
                 )
             }
