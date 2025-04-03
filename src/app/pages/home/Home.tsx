@@ -7,7 +7,7 @@ function Home() {
                 </div>
                 <div className="py-10 text-right">
                     <div className="pr-4">
-                        <h1 className=" font-montserrat">¿Pagando de más por ropa deportiva?</h1>
+                        <h1 className=" font-radio">¿Pagando de más por ropa deportiva?</h1>
                     </div>
                     <div className="pr-4">
                         <p>Compra inteligente, compra fácil.</p>
