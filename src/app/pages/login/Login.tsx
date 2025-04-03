@@ -29,7 +29,7 @@ export const Login = () => {
 
     return (
         <div className="w-screen h-screen bg-cover bg-sports flex justify-center items-center">
-            <form className="relative flex flex-col w-80 h-[350px] rounded-3xl bg-white bg-opacity-80 px-10" >
+            <form className="relative flex flex-col w-80 h-[350px] rounded-3xl bg-white/80 px-10" >
                 <div className=" h-20 pt-6 flex justify-center items-center relative ">
                     <div>
                         <img className="w-5 h-5 absolute left-0 top-1/2 transform -translate-y-1/2" src="arrow left.svg" alt="Previous" />
@@ -39,13 +39,13 @@ export const Login = () => {
                 <div className="w-full h-20 flex justify-center items-center">
                     <div className="w-full flex flex-col">
                         <label htmlFor="email" className="text-primary-color"><strong>Usuario</strong></label>
-                        <input name="email" className="indent-2.5 h-10 rounded-md placeholder:text-gray" placeholder="Correo electrónico" style={{ boxShadow: "-1px 1px 7px gray" }} type="email" onChange={handleInputChange} />
+                        <input name="email" className="bg-white indent-2.5 h-10 rounded-md placeholder:text-gray" placeholder="Correo electrónico" style={{ boxShadow: "-1px 1px 7px gray" }} type="email" onChange={handleInputChange} />
                     </div> { /* el de arriba */}
                 </div>
                 <div className="w-full h-18">
                     <div className="w-full flex flex-col">
                         <label htmlFor="password" className="text-primary-color"><strong>Contraseña</strong></label>
-                        <input name="password" className="indent-2.5 h-10 rounded-md placeholder:text-gray" placeholder="Contraseña" style={{ boxShadow: "-1px 1px 7px gray" }} type="password" onChange={handleInputChange} />
+                        <input name="password" className="bg-white indent-2.5 h-10 rounded-md placeholder:text-gray" placeholder="Contraseña" style={{ boxShadow: "-1px 1px 7px gray" }} type="password" onChange={handleInputChange} />
                     </div>
                 </div>
                 <div className="w-full h-28">
