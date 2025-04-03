@@ -56,7 +56,13 @@ export default {
 
 			backgroundImage: {
 				"sports":"url('sportbackground.jpg')"
-			}
+			},
+
+			fontFamily: {
+				radio: ["Radio", "sans-serif"],
+				montserrat: ["Montserrat", "sans-serif"],
+				lato: ["Lato", "sans-serif"],
+			  },
 		}
 	},
 	plugins: [require("tailwindcss-animate")],

@@ -1,7 +1,7 @@
 export class UserService {
 
     // peticion al backend para logear, devolver un token
-    static Login = (email: string, password: string) => {
+    static Login = (email: string, password: string): Promise<string> => {
         return new Promise((res) => {
             //axios.post("URL DEL BACKEN/login", {
             //    email, password

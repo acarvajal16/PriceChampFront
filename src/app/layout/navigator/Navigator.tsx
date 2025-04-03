@@ -16,8 +16,8 @@ function Navigator() {
     
     return (
         <div className="w-full h-full bg-primary-color flex">
-            <div className="h-full p-2">
-                <img src={Logo} className="h-full max-h-full" alt='mySvgImage' />
+            <div className="flex justify-center items-center p-4">
+                <img src={Logo} className="w-24 h-24" alt='mySvgImage' />
             </div>
             {
                 user ? (
@@ -29,7 +29,19 @@ function Navigator() {
                     </>
                 ) : (
                     <>
-                        <div>Log In</div>
+                        <div className="w-full flex justify-between p-4 text-white font-bold">
+                            <div>
+                                aqui va la barra de busq
+                            </div>
+                            <div className="flex">
+                                <div className="px-4">
+                                    Categorías
+                                </div>
+                                <div className="pr-4">
+                                    <img src="user.svg" alt="" className=" size-5" />
+                                </div>
+                            </div>
+                        </div>
                     </>
                 )
             }

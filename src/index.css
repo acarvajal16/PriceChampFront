@@ -1,6 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: Radio;
+  src: url("../src/assets/fonts/RadioCanadaBig-VariableFont_wght.ttf");
+
+  font-family: Montserrat;
+  src:url("../src/assets/fonts/Montserrat-Black.ttf");
+
+  font-family: Lato;
+  src: url("../src/assets/fonts/Lato-Regular.ttf");
+}
+
+@theme{
+  --font-radio: Radio, "sans-serif";
+  --font-montserrat: Montserrat, "sans-serif";
+  --font-lato: Lato, "sans-serif";
+
+}
 @layer base {
   :root {
     --primary-color: #2B59C3 !important;

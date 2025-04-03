@@ -20,7 +20,6 @@ function AppRoutes() {
                 {
                     (user) ? (
                         <Route element={<Layout />}>
-                            <Route path={routes.home} element={<Home />} />
                             <Route path={routes.profile} element={<Profile />} />
                             {/* las rutas de la app */}
 
@@ -30,6 +29,9 @@ function AppRoutes() {
                         </Route>
                     ) : (
                         <>
+                            <Route element={<Layout />}>
+                            <Route path={routes.home} element={<Home />} />
+                            </Route>
                             <Route path={routes.login} element={<Login />} />
                             <Route path={routes.register} element={<Register />} />
                             <Route path="*" element={<Navigate to={routes.login} />} />
