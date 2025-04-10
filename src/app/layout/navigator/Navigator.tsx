@@ -3,6 +3,7 @@ import { Button } from "@/shared/shadcn/ui/button";
 import useAuth from "@/shared/store/useAuth";
 import { useNavigate } from "react-router-dom";
 import Logo from "/LogoTexto.svg"
+import SearchBar from "./SearchBarMain";
 
 function Navigator() {
 
@@ -30,8 +31,8 @@ function Navigator() {
                 ) : (
                     <>
                         <div className="w-full flex justify-between p-4 text-white font-bold">
-                            <div>
-                                aqui va la barra de busq
+                            <div className="w-full h-full flex items-center">
+                                <SearchBar/>
                             </div>
                             <div className="flex">
                                 <div className="px-4">
