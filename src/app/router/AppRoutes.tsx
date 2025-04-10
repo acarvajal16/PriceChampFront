@@ -7,6 +7,8 @@ import Home from "../pages/home/Home";
 import { Ventas } from "../pages/ventas/Ventas";
 import Login from "../pages/login/Login";
 import { Register } from "../pages/register/Register";
+import Busqueda from "../pages/busqueda/Busqueda";
+import { useEffect } from "react";
 
 const baseurl = import.meta.env.BASE_URL;
 
@@ -17,18 +19,27 @@ function AppRoutes() {
     return (
         <BrowserRouter basename={baseurl}>
             <Routes>
+                {
+                    (user) ? (
+                        <Route element={<Layout />}>
+                            <Route path={routes.profile} element={<Profile />} />
 
-                <Route element={<Layout />}>
-                <Route path={routes.home} element={<Home />} />
-                    <Route path={routes.profile} element={<Profile />} />
-                    {/* las rutas de la app */}
+                            <Route path={routes.ventas} element={<Ventas />} />
+                            <Route path={routes.ventas} element={<Busqueda />} />
 
-                    <Route path={routes.ventas} element={<Ventas />} />
-{/* 
-                    <Route path="*" element={<Navigate to={routes.home} />} /> */}
-                </Route>
-                <Route path={routes.login} element={<Login />} />
-                <Route path={routes.register} element={<Register />} />
+                            <Route path="*" element={<Navigate to={routes.home} />} />
+                        </Route>
+                    ) : (
+                        <>
+                            <Route element={<Layout />}>
+                                <Route path={routes.home} element={<Home />} />
+                            </Route>
+                            <Route path={routes.login} element={<Login />} />
+                            <Route path={routes.register} element={<Register />} />
+                            <Route path="*" element={<Navigate to={routes.login} />} />
+                        </>
+                    )
+                }
             </Routes>
         </BrowserRouter>
     )
@@ -38,25 +49,7 @@ export default AppRoutes;
 
 /**
 
-                    (user) ? (
-                        <Route element={<Layout />}>
-                            <Route path={routes.profile} element={<Profile />} />
-
-                            <Route path={routes.ventas} element={<Ventas />} />
-
-                            <Route path="*" element={<Navigate to={routes.home} />} />
-                        </Route>
-                    ) : (
-                        <>
-                            <Route element={<Layout />}>
-                            <Route path={routes.home} element={<Home />} />
-                            </Route>
-                            <Route path={routes.login} element={<Login />} />
-                            <Route path={routes.register} element={<Register />} />
-                            <Route path="*" element={<Navigate to={routes.login} />} />
-                        </>
-                    )
-                }
+                    
 
 
 */

@@ -3,5 +3,6 @@ export const routes = {
     register: "/register",
     home: "/home",
     profile: "/profile",
-    ventas: "/ventas"
+    ventas: "/ventas",
+    busqueda: "/busqueda"
 }

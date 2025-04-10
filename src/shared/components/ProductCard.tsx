@@ -8,7 +8,7 @@ export const ProductCard = ({ i }: { i: number }) => {
                 <div className="justify-start ">
                     <div className="flex">
                         <h2 className="font-radiobold text-lg">Producto #{i}</h2>
-                        <img src="Heart Icon.svg" alt="Favoritos" className="mt-1.5 ml-13 size-5" />
+                        <img src="Heart Icon.svg" alt="Favoritos" className="mt-1.5 ml-1 size-5" />
                     </div>
                     <h4 className="text-xs font-bold text-gray-500 -mt-1.5">RF#000{i}</h4>
                     <div className="flex items-center justify-between w-full">

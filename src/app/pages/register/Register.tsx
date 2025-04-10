@@ -1,9 +1,12 @@
 import { routes } from "@/app/router/routes";
+import { UserService } from "@/services/firebase/auth";
+import useAuth from "@/shared/store/useAuth";
 import { ChangeEvent, useEffect, useState } from "react";
-import { Router, Routes, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export function Register() {
 
+    const setUser = useAuth(s => s.setUser);
     const navigate = useNavigate();
 
     const [formData, setAddUser] = useState<{ [key: string]: string }>({
@@ -44,7 +47,14 @@ export function Register() {
             return;
         }
 
-        try {
+        UserService.Register(formData['correo'], formData['password'])
+            .then((email) => {
+                if(email) {
+                    setUser(email);
+                }
+            });
+
+        /*try {
             const response = await fetch('http://localhost:5173/usuario/registro', {
                 method: 'POST',
                 headers: {
@@ -64,7 +74,7 @@ export function Register() {
             }
         } catch (error) {
             console.error('Error en la solicitud de registro:', error);
-        }
+        }*/
     };
 
 

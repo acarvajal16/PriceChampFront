@@ -1,5 +1,4 @@
 import { IUser } from '@/interfaces/IUser';
-import { decodeJwt } from 'jose';
 import { create } from 'zustand';
 
 export type useAuthType = {
@@ -16,12 +15,12 @@ const useAuth = create<useAuthType>((set, get) => ({
   token: null,
   
   setUser: (token) => {
-    localStorage.setItem('token', token);
+    localStorage.setItem('email', token);
     try {
-      const decoded = decodeJwt(token);
+      // const decoded = decodeJwt(token);
 
       const user: IUser = {
-        name: decoded.name as string
+        email: token
       }
 
       set({ token, user });
@@ -32,7 +31,7 @@ const useAuth = create<useAuthType>((set, get) => ({
   },
 
   getToken: () => {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem('email');
     if(token) {
       get().setUser(token);
     }
@@ -40,7 +39,7 @@ const useAuth = create<useAuthType>((set, get) => ({
   },
   
   clearUser: () => {
-    localStorage.removeItem('token');
+    localStorage.removeItem('email');
     set({ user: null, token: null });
   }
 }));

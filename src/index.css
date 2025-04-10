@@ -5,9 +5,9 @@
 :root {
   --primary-color: #2B59C3 !important;
   --secondary-color: #F6F3EC;
-  --color-gris: #f5f5f5;
   --color-ardilla: #866349;
   --color-marron: #92725b;
+  --color-grisdos: #2c2c2c;
 
   --radius: 0.625rem;
   --background: oklch(1 0 0);
@@ -100,6 +100,7 @@
 @theme {
   --color-primary-color: var(--primary-color);
 	--color-secondary-color: var(--secondary-color);
+  --color-gris: var(--color-grisdos);
   --font-radio: Radio, "sans-serif";
   --font-radiobold: RadioBold, "sans-serif";
   --font-montserrat: Montserrat, "sans-serif";
