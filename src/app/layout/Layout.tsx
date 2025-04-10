@@ -3,7 +3,7 @@ import Navigator from "./navigator/Navigator";
 
 function Layout() {
     return (
-        <div className="w-screen h-screen overflow-hidden flex flex-col">
+        <div className="w-screen h-screen overflow-x-hidden flex flex-col">
             <div className="w-full h-16">
                 <Navigator/>
             </div>

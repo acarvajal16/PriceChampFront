@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button"
+import { Button } from "@/shared/shadcn/ui/button"
 import useAuth from "@/shared/store/useAuth"
 
 export const Ventas = () => {

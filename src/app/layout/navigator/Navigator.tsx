@@ -1,5 +1,5 @@
 import { routes } from "@/app/router/routes";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/shared/shadcn/ui/button";
 import useAuth from "@/shared/store/useAuth";
 import { useNavigate } from "react-router-dom";
 import Logo from "/LogoTexto.svg"

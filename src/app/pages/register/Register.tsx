@@ -74,7 +74,7 @@ export function Register() {
 
     return (
         <div className="w-screen h-screen bg-cover bg-sports flex justify-center items-center">
-            <div className="relative flex flex-col w-[600px] min-h-[400px] rounded-3xl bg-white bg-opacity-80 px-10">
+            <div className="relative flex flex-col w-[600px] min-h-[400px] rounded-3xl bg-white/80 px-10">
                 <div className="pt-6">
                     <button
                         onClick={() => navigate(routes.login)}
@@ -98,7 +98,7 @@ export function Register() {
                                     id="nombre_usuario"
                                     value={formData.nombre_usuario}
                                     onChange={handleInputChange}
-                                    className="indent-2.5 h-8 w-full rounded-md placeholder:text-gray shadow-gray-400 shadow-md"
+                                    className="indent-2.5 bg-white h-8 w-full rounded-md placeholder:text-gray shadow-gray-400 shadow-md"
                                     placeholder="Nombre(s)"
                                     //style={{ boxShadow: "-2px 2px 9px gray" }}
                                 />
@@ -111,7 +111,7 @@ export function Register() {
                                     id="apellido_usuario"
                                     value={formData.apellido_usuario}
                                     onChange={handleInputChange}
-                                    className="indent-2.5 h-8 w-full rounded-md placeholder:text-gray shadow-gray-400 shadow-md"
+                                    className="indent-2.5 bg-white h-8 w-full rounded-md placeholder:text-gray shadow-gray-400 shadow-md"
                                     placeholder="Apellido(s)"
                                     //style={{ boxShadow: "-2px 2px 9px gray" }}
                                 />
@@ -124,7 +124,7 @@ export function Register() {
                                     id="correo_electronico"
                                     value={formData.correo}
                                     onChange={handleInputChange}
-                                    className="indent-2.5 h-8 w-full rounded-md placeholder:text-gray shadow-gray-400 shadow-md"
+                                    className="indent-2.5 bg-white h-8 w-full rounded-md placeholder:text-gray shadow-gray-400 shadow-md"
                                     placeholder="correo@ejemplo.com"
                                     //style={{ boxShadow: "-2px 2px 9px gray" }}
                                 />
@@ -141,7 +141,7 @@ export function Register() {
                                     //hasError={!passwordsMatch}
                                     value={formData.password}
                                     onChange={handleInputChange}
-                                    className="indent-2.5 h-8 w-full rounded-md placeholder:text-gray shadow-gray-400 shadow-md"
+                                    className="indent-2.5 bg-white h-8 w-full rounded-md placeholder:text-gray shadow-gray-400 shadow-md"
                                     placeholder="Contraseña"
                                     //style={{ boxShadow: "-2px 2px 9px gray" }}
                                 />
@@ -156,7 +156,7 @@ export function Register() {
                                     //hasError={!passwordsMatch}
                                     value={formData.confirmar_contraseña}
                                     onChange={handleInputChange}
-                                    className="indent-2.5 h-8 w-full rounded-md placeholder:text-gray shadow-gray-400 shadow-md"
+                                    className="indent-2.5 bg-white h-8 w-full rounded-md placeholder:text-gray shadow-gray-400 shadow-md"
                                     placeholder="Confirmar Contraseña"
                                     //style={{ boxShadow: "-2px 2px 9px gray" }}
 
@@ -190,7 +190,7 @@ export function Register() {
                             <div className="w-full h-14 flex justify-center items-center">
                                 <button
                                     type="submit"
-                                    className={`w-28 h-8 pb-1 text-center text-[14px] bg-indigo-500 shadow-lg shadow-indigo-500/50 rounded-xl text-white ${!termsAccepted && 'opacity-50 cursor-not-allowed'}`}
+                                    className={`w-28 h-8 pb-1 text-center text-[14px] bg-indigo-500 shadow-lg shadow-indigo-500/50 hover:bg-black rounded-xl text-white ${!termsAccepted && 'opacity-50 cursor-not-allowed'}`}
                                     style={{lineHeight: "0px"}}
                                     disabled={!termsAccepted || !passwordsMatch}
                                 >

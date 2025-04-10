@@ -17,11 +17,30 @@ function AppRoutes() {
     return (
         <BrowserRouter basename={baseurl}>
             <Routes>
-                {
+
+                <Route element={<Layout />}>
+                <Route path={routes.home} element={<Home />} />
+                    <Route path={routes.profile} element={<Profile />} />
+                    {/* las rutas de la app */}
+
+                    <Route path={routes.ventas} element={<Ventas />} />
+{/* 
+                    <Route path="*" element={<Navigate to={routes.home} />} /> */}
+                </Route>
+                <Route path={routes.login} element={<Login />} />
+                <Route path={routes.register} element={<Register />} />
+            </Routes>
+        </BrowserRouter>
+    )
+}
+
+export default AppRoutes;
+
+/**
+
                     (user) ? (
                         <Route element={<Layout />}>
                             <Route path={routes.profile} element={<Profile />} />
-                            {/* las rutas de la app */}
 
                             <Route path={routes.ventas} element={<Ventas />} />
 
@@ -39,9 +58,5 @@ function AppRoutes() {
                     )
                 }
 
-            </Routes>
-        </BrowserRouter>
-    )
-}
 
-export default AppRoutes;
+*/
