@@ -8,7 +8,6 @@ import { Ventas } from "../pages/ventas/Ventas";
 import Login from "../pages/login/Login";
 import { Register } from "../pages/register/Register";
 import Busqueda from "../pages/busqueda/Busqueda";
-import { useEffect } from "react";
 
 const baseurl = import.meta.env.BASE_URL;
 

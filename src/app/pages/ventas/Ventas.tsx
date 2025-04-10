@@ -7,7 +7,7 @@ export const Ventas = () => {
 
     return (
         <div className="w-full h-full flex justify-center items-center">
-            <div>VENTAS de {user?.name}</div>
+            <div>VENTAS de {user?.email}</div>
             <Button>COMPRAR!!! </Button>
         </div>
     )
