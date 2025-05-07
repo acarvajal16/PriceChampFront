@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import AppRoutes from "./app/router/AppRoutes"
-import useAuth from "./shared/store/useAuth"
+import AppRoutes from "./app/router/AppRoutes";
+import useAuth from "./shared/store/useAuth";
 
 function App() {
 
@@ -16,3 +16,4 @@ function App() {
 }
 
 export default App
+

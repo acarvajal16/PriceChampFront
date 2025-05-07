@@ -8,6 +8,8 @@ import { Ventas } from "../pages/ventas/Ventas";
 import Login from "../pages/login/Login";
 import { Register } from "../pages/register/Register";
 import Busqueda from "../pages/busqueda/Busqueda";
+import Favoritos from "../pages/favoritos/Favoritos";
+import Historial from "../pages/historial/Historial";
 
 const baseurl = import.meta.env.BASE_URL;
 
@@ -32,6 +34,8 @@ function AppRoutes() {
                         <>
                             <Route element={<Layout />}>
                                 <Route path={routes.home} element={<Home />} />
+                                <Route path={routes.favoritos} element={<Favoritos />} />
+                                <Route path={routes.historial} element={<Historial />} />
                             </Route>
                             <Route path={routes.login} element={<Login />} />
                             <Route path={routes.register} element={<Register />} />

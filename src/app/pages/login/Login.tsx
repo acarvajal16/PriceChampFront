@@ -57,7 +57,7 @@ export const Login = () => {
                             <a className="underline text-[12px] text-primary-color" href="">Olvidé mi contraseña</a>
                         </strong>
                         <div className="flex justify-center items-center py-3">
-                            <button className="w-28 h-8 text-[14px] rounded-3xl bg-primary-color text-white" style={{ boxShadow: "-2px 2px 2px gray" }} onClick={handleLogin}>
+                            <button className="px-4 py-1 text-[14px] rounded-3xl bg-primary-color text-white hover:bg-blue-800" style={{ boxShadow: "-2px 2px 2px gray" }} onClick={handleLogin}>
                                 Iniciar sesión
                             </button>
                         </div>

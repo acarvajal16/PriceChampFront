@@ -4,5 +4,7 @@ export const routes = {
     home: "/home",
     profile: "/profile",
     ventas: "/ventas",
-    busqueda: "/busqueda"
+    busqueda: "/busqueda",
+    favoritos: "/favoritos",
+    historial: "/historial"
 }

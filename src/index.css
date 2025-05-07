@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@plugin "css-fade/tailwindcss";
+
 @custom-variant dark (&:is(.dark *));
 
 :root {
@@ -162,4 +164,47 @@
   .bg-blur {
     background-image: url('/background-blur.png');
   }
+
+  .bg-track {
+    background-image: url('/track.jpg');
+  }
+
+  .bg-gradient {
+    background-image: url('/gradient.jpg');
+  }
+
+  .bg-user {
+    background-image: url('/user.svg');
+  }
+
+  .bg-fav {
+    background-image: url('/fav.svg');
+  }
+
+  .bg-historial {
+    background-image: url('/historial.svg');
+  }
+
+  .bg-signout {
+    background-image: url('/sowhite.svg');
+  }
+}
+
+.single-blog-bg {
+  background-size: cover;
+  background-attachment: fixed;
+  height: 350px;
+  position: relative; 
+  }
+.single-blog-bg:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  /*top: 300px*/
+  bottom: 0;
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.95) 10%, rgba(255, 255, 255, 0.13) 60%, rgba(255, 255, 255, 0.04) 70%);
+  /* opacity: .5; */
+  height: 100%;
+  opacity: .5;
 }
