@@ -1,7 +1,11 @@
 
 import { useNavigate } from 'react-router-dom';
+import useAuth from '../store/useAuth';
 
 export default function Sidebar() {
+
+    const clearUser = useAuth(s => s.clearUser);
+
     const navigate = useNavigate();
 
     const Opcion = ({
@@ -15,7 +19,7 @@ export default function Sidebar() {
     }) => {
         return (
             <div
-                className={`text-lg hover:text-blue-700 hover:cursor-pointer indent-10 bg-[length:1.5rem] bg-[10px] bg-no-repeat ${className}`}
+                className={`text-lg hover:bg-blue-800 rounded-lg p-1.5 hover:cursor-pointer indent-10 bg-[length:1.5rem] bg-[10px] bg-no-repeat ${className}`}
                 onClick={onClick}
             >
                 <strong className='px-5'>{nombre}</strong>
@@ -26,7 +30,7 @@ export default function Sidebar() {
 
     return (
 
-        <div className="m-5 mt-10 w-60 rounded-2xl h-[400px] bg-primary-color shadow-xl">
+        <div className="m-5 mt-5 w-60 rounded-2xl h-[400px] bg-primary-color shadow-xl">
             <div className="grid grid-cols-1 gap-6 p-6 text-white">
                 <Opcion
                     nombre="Cuenta"
@@ -48,7 +52,7 @@ export default function Sidebar() {
                 <Opcion
                     nombre="Salir"
                     className="bg-signout"
-                    onClick={() => navigate("/historialCompra")} //ojo cambiar este nose cual
+                    onClick={() => clearUser()} //ojo cambiar este nose cual
                 />
             </div>
         </div>

@@ -1,4 +1,5 @@
 import { IUser } from '@/interfaces/IUser';
+import { api } from '@/services/ApiClient';
 import { create } from 'zustand';
 
 export type useAuthType = {
@@ -9,15 +10,15 @@ export type useAuthType = {
   clearUser: () => void
 }
 
-
 const useAuth = create<useAuthType>((set, get) => ({
   user: null,
   token: null,
   
   setUser: (token) => {
-    localStorage.setItem('email', token);
+    localStorage.setItem('token', token);
+    api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
     try {
-      // const decoded = decodeJwt(token);
+      //const decoded = decodeJwt(token);
 
       const user: IUser = {
         email: token
@@ -31,7 +32,7 @@ const useAuth = create<useAuthType>((set, get) => ({
   },
 
   getToken: () => {
-    const token = localStorage.getItem('email');
+    const token = localStorage.getItem('token');
     if(token) {
       get().setUser(token);
     }
@@ -39,7 +40,8 @@ const useAuth = create<useAuthType>((set, get) => ({
   },
   
   clearUser: () => {
-    localStorage.removeItem('email');
+    localStorage.removeItem('token');
+    api.defaults.headers.common['Authorization'] = "";
     set({ user: null, token: null });
   }
 }));

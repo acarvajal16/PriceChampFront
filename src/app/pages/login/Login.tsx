@@ -3,10 +3,13 @@ import useAuth from "@/shared/store/useAuth";
 import Logo from "/LogoTextoDark.svg"
 import { routes } from "@/app/router/routes";
 import { useState } from "react";
-import { UserService } from "@/services/firebase/auth";
 import Footer from "@/app/layout/footer/Footer";
+import { useNavigate } from "react-router-dom";
+import { ApiClient } from "@/services/ApiClient";
 
 export const Login = () => {
+
+    const navigate = useNavigate();
 
     //este
     const [user, setAddUser] = useState({
@@ -16,17 +19,13 @@ export const Login = () => {
     const { setUser } = useAuth();
 
     const handleLogin = async () => {
-        UserService.Login(user.email, user.password)
-            .then((email) => {
-                console.log(email);
-                if (email) {
-                    setUser(email);
-                }
+        ApiClient.login(user.email, user.password)
+            .then((res) => {
+                setUser(res.idToken);
             });
     }
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-
         setAddUser(p => ({ ...p, [e.target.name]: e.target.value }));
     }
 
@@ -36,9 +35,9 @@ export const Login = () => {
                 <div className="relative flex flex-col w-80 h-[350px] rounded-3xl bg-white/80 px-10" >
                     <div className=" h-20 pt-6 flex justify-center items-center relative ">
                         <div>
-                            <img className="w-5 h-5 absolute left-0 top-1/2 transform -translate-y-1/2" src="arrow left.svg" alt="Previous" />
+                            <img onClick={()=> navigate(routes.home)} className="w-5 h-5 cursor-pointer absolute left-0 top-1/2 transform -translate-y-1/2" src="arrow left.svg" alt="Previous" />
                         </div>
-                        <img className=" w-40 " src={Logo} alt="Logo" />
+                        <img onClick={() => navigate(routes.home)} className="cursor-pointer w-40 " src={Logo} alt="Logo" />
                     </div>
                     <div className="w-full h-20 flex justify-center items-center">
                         <div className="w-full flex flex-col">
@@ -57,7 +56,7 @@ export const Login = () => {
                             <a className="underline text-[12px] text-primary-color" href="">Olvidé mi contraseña</a>
                         </strong>
                         <div className="flex justify-center items-center py-3">
-                            <button className="px-4 py-1 text-[14px] rounded-3xl bg-primary-color text-white hover:bg-blue-800" style={{ boxShadow: "-2px 2px 2px gray" }} onClick={handleLogin}>
+                            <button className="px-4 py-1 text-[14px] cursor-pointer rounded-3xl bg-primary-color text-white hover:bg-blue-800" style={{ boxShadow: "-2px 2px 2px gray" }} onClick={handleLogin}>
                                 Iniciar sesión
                             </button>
                         </div>

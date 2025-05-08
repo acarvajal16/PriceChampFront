@@ -13,17 +13,17 @@ const CarouselWithIndicators: React.FC<CarouselWithIndicatorsProps> = ({
     ],
 }) => {
     return (
-        <div>
+        <div className="mt-5">
             <Carousel
-                height={500}
+                height={400}
                 withIndicators
             >
                 {
                     images.map((src ,i) => (
                         <Carousel.Slide
-                            className=""
+                            className="flex justify-center items-center"
                         >
-                            <img src={src} alt={`Slide ${i + 1}`} className="w-full" />
+                            <img src={src} alt={`Slide ${i + 1}`} className="max-h-full ml-6" />
                         </Carousel.Slide>
                     ))
                 }

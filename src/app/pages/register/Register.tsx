@@ -1,4 +1,5 @@
 import { routes } from "@/app/router/routes";
+import { ApiClient } from "@/services/ApiClient";
 import { UserService } from "@/services/firebase/auth";
 import useAuth from "@/shared/store/useAuth";
 import { ChangeEvent, useEffect, useState } from "react";
@@ -47,34 +48,12 @@ export function Register() {
             return;
         }
 
-        UserService.Register(formData['correo'], formData['password'])
-            .then((email) => {
-                if(email) {
-                    setUser(email);
+        ApiClient.register(formData['correo'],formData['password'])
+            .then((res) => {
+                if(res.token) {
+                    setUser(res.token);
                 }
             });
-
-        /*try {
-            const response = await fetch('http://localhost:5173/usuario/registro', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(formData)
-            });
-
-            if (response.ok) {
-                const data = await response.json();
-                console.log('Registro exitoso:', data.message); // Muestra el mensaje del servidor
-                navigate(routes.login); // Redirige al usuario a la página de inicio de sesión
-            } else {
-                // Si la respuesta no es exitosa, muestra el mensaje de error del servidor
-                const errorMessage = await response.text();
-                console.error('Error en el registro:', errorMessage);
-            }
-        } catch (error) {
-            console.error('Error en la solicitud de registro:', error);
-        }*/
     };
 
 
@@ -88,13 +67,13 @@ export function Register() {
                 <div className="pt-6">
                     <button
                         onClick={() => navigate(routes.login)}
-                        className="absolute top-6 left-2 w-6 h-6 pl-1"
+                        className="cursor-pointer absolute top-6 left-2 w-6 h-6 pl-1"
                     >
                         <img className="w-full h-full" src="arrow left.svg" alt="Back to log in" />
                     </button>
                 </div>
-                <div className=" h-20 flex justify-center items-center">
-                    <img className="max-h-full" src="LogoTextoDark.svg" />
+                <div className="cursor-pointer h-20 flex justify-center items-center">
+                    <img onClick={()=> navigate(routes.home)} className="max-h-full" src="LogoTextoDark.svg" />
                 </div>
                 {/* Contenido del formulario */}
                 <div className="">

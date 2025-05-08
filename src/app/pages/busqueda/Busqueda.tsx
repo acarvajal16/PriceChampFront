@@ -1,37 +1,43 @@
 import { ProductCard } from "@/shared/components/ProductCard";
+import CategoryFilter from "./CategoryFilter";
+import { useSearchParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { ApiClient } from "@/services/ApiClient";
+import { Producto } from "@/interfaces/Api";
+
 
 function Busqueda() {
+    
+    const [get] = useSearchParams();
+    const q = get.get("q");
+    const [productos, setProductos] = useState<Producto[]>([]);
+
+    useEffect(() => {
+
+        ApiClient.getProductos(q ?? "")
+            .then(res => {
+                setProductos([...res.productos]);
+            });
+
+    }, [get]);
+
     return (
-        <div className="flex  justify-center items-center w-screen h-full">
-            <div className="bg-white m-4 h-96 w-[160px] text-center rounded-lg">
-                Filtros
+        <div className="flex relative justify-center items-center w-screen h-full">
+            <div className="bg-white flex place-self-start m-4 mt-10 h-96 w-[160px] text-center rounded-lg">
+                <CategoryFilter/>
             </div>
             <div className="flex-1 h-full py-10 flex flex-col gap-2">
-                <div className="h-10 bg-red-50">
-
+                <div className="h-10 py-1 px-1.5 mr-4  font-radiobold  text-xl">
+                    Resultados de la búsqueda "{q}"
                 </div>
                 <div className="p-4 h-full grid grid-cols-4 gap-y-6 bg-gray-100 rounded-md mr-4">
-                    <div>
-                        <ProductCard i={3} />
-                    </div>
-                    <div>
-                        <ProductCard i={3} />
-                    </div>
-                    <div>
-                        <ProductCard i={3} />
-                    </div>
-                    <div>
-                        <ProductCard i={3} />
-                    </div>
-                    <div>
-                        <ProductCard i={3} />
-                    </div>
-                    <div>
-                        <ProductCard i={3} />
-                    </div>
-                    <div>
-                        <ProductCard i={3} />
-                    </div>
+                    {
+                        productos.map(producto => (
+                            <div>
+                                <ProductCard producto={producto} />
+                            </div>
+                        ))
+                    }
                 </div>
             </div>
         </div>

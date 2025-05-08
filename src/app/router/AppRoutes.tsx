@@ -23,10 +23,11 @@ function AppRoutes() {
                 {
                     (user) ? (
                         <Route element={<Layout />}>
+                            <Route path={routes.home} element={<Home />} />
                             <Route path={routes.profile} element={<Profile />} />
-
+                            <Route path={routes.favoritos} element={<Favoritos />} />
                             <Route path={routes.ventas} element={<Ventas />} />
-                            <Route path={routes.ventas} element={<Busqueda />} />
+                            <Route path={routes.busqueda} element={<Busqueda />} />
 
                             <Route path="*" element={<Navigate to={routes.home} />} />
                         </Route>
@@ -36,6 +37,7 @@ function AppRoutes() {
                                 <Route path={routes.home} element={<Home />} />
                                 <Route path={routes.favoritos} element={<Favoritos />} />
                                 <Route path={routes.historial} element={<Historial />} />
+                                <Route path={routes.busqueda} element={<Busqueda />} />
                             </Route>
                             <Route path={routes.login} element={<Login />} />
                             <Route path={routes.register} element={<Register />} />

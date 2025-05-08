@@ -1,9 +1,29 @@
+import { routes } from "@/app/router/routes";
+import { Producto } from "@/interfaces/Api";
+import { ApiClient } from "@/services/ApiClient";
 import CarouselWithIndicators from "@/shared/components/CarouselWithIndicators";
 import { ProductCard } from "@/shared/components/ProductCard";
-
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 
 function Home() {
+
+    const navigate = useNavigate();
+    const [busqueda, setBusqueda] = useState("");
+
+    const [productos, setProductos] = useState<Producto[]>([]);
+
+    useEffect(() => {
+
+        ApiClient.getRandomProductos()
+            .then(res => {
+                console.log(res);
+                setProductos([...res.productos]);
+            });
+
+    }, []);
+
     return (
         <div className="bg-white h-full w-full">
             <div className="flex fade-b-[19%] mb-2 ">
@@ -19,7 +39,10 @@ function Home() {
                             Con Price Champ puedes comparar precios de las mejores marcas de ropa deportiva en un solo lugar. Encuentra las mejores ofertas y descuentos
                         </p>
                         <div className="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
-                            <form className="max-w-md mx-auto">
+                            <form className="max-w-md mx-auto" onSubmit={(e) => {
+                                e.preventDefault();
+                                navigate(`${routes.busqueda}?q=${busqueda}`);
+                            }}>
                                 <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">
                                     Search
                                 </label>
@@ -47,10 +70,12 @@ function Home() {
                                         className="w-[300px] block p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                         placeholder="Busca y compara..."
                                         required
+                                        value={busqueda}
+                                        onChange={(e) => setBusqueda(e.target.value)}
                                     />
                                     <button
                                         type="submit"
-                                        className="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                                        className="text-white absolute end-2.5 bottom-2.5 cursor-pointer bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                                     >
                                         Ir
                                     </button>
@@ -65,30 +90,25 @@ function Home() {
                     <h1 className="font-radiobold text-3xl my-2 p-10">Productos Destacados</h1>
                 </div >
                 <div className="w-full flex flex-nowrap overflow-x-auto scrollbar-hide scroll-smooth">
-                    <div className="flex-1 flex justify-center items-center">
-                        <ProductCard i={1} />
-                    </div>
-                    <div className="flex-1 flex justify-center items-center">
-                        <ProductCard i={2} />
-                    </div>
-                    <div className="flex-1 flex justify-center items-center">
-                        <ProductCard i={4} />
-                    </div>
-                    <div className="flex-1 flex justify-center items-center">
-                        <ProductCard i={3} />
-                    </div>
+                    {
+                        productos.map(((producto) => (
+                            <div className="flex-1 flex justify-center items-center">
+                                <ProductCard producto={producto} />
+                            </div>
+                        )))
+                    }
                 </div>
             </div>
             <div className="relative w-full h-[340px] ml-7">
                 <img src="RegisterBanner.png" alt="Seccion Registrar" />
-                <button className="absolute bottom-20 right-50 bg-white rounded-3xl  py-1 px-4 hover:bg-black focus:ring-white ">
-                    <p className=" font-radiobold text-black hover:text-white">
+                <button onClick={() => navigate(routes.register)} className="absolute bottom-20 right-50 cursor-pointer  bg-white rounded-3xl  py-1 px-4 hover:bg-black hover:text-white focus:ring-white ">
+                    <p className=" font-radiobold ">
                         Únete aquí
                     </p>
                 </button>
             </div>
             <Test />
-            <div className="-mb-4">
+            <div>
                 <CarouselWithIndicators
                     images={[
                         "Seccion Dctos.png",
