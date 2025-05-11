@@ -105,6 +105,8 @@ import { useLocation, useNavigate } from "react-router-dom";
         }).format(discountedPrice);
     };*/
 
+    function Detalle(){
+
     return (
         <div className="flex justify-center p-8">
             <div className="w-[960px] rounded-xl bg-white">
@@ -196,3 +198,5 @@ import { useLocation, useNavigate } from "react-router-dom";
         </div>
     );
 };
+
+export default Detalle;

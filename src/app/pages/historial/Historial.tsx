@@ -2,19 +2,19 @@ import Sidebar from "@/shared/components/SideBar";
 
 function Historial() {
     return (
-        <div className="container max-w-full flex p-4">
+        <div className="container max-w-full flex p-4 dark:bg-gray-600">
             <div>
                 <Sidebar />
             </div>
-            <div className="m-5 w-full  rounded-2xl bg-white shadow-xl">
+            <div className="m-5 w-full  rounded-2xl bg-white shadow-xl dark:bg-gray-800">
                 <div className="px-8 pt-6">
-                    <h2 className="text-2xl font-bold font-radio">Historial</h2>
+                    <h2 className="text-2xl font-bold font-radio dark:text-white">Historial</h2>
                     <div
-                        className="my-1 h-0.5 w-full bg-blue-900">
+                        className="my-1 h-0.5 w-full bg-blue-900 dark:bg-blue-500">
                     </div>
                 </div>
                 <div className="">
-                    <div className="flex flex-col">
+                    <div className="flex flex-col ml-2">
                         <div className="overflow-x-auto -mx-4 sm:-mx-6 lg:-mx-8">
                             <div className="inline-block min-w-full py-2 px-4 sm:px-6 lg:px-8">
                                 <div className="overflow-hidden">

@@ -9,7 +9,7 @@ export const ProductCard = ({ producto }: { producto: Producto }) => {
             <div className="flex w-full pl-2.5">
                 <div className="flex flex-col w-full">
                     <div className="flex items-center justify-between">
-                        <h2 className="font-radiobold text-lg">{producto.producto}</h2>
+                        <h2 className="font-radiobold text-base line-clamp-1">{producto.producto}</h2>
                         <button
                             type="button"
                             className="rounded-full border border-transparent mr-1 p-2 text-sm text-slate-600 transition-colors hover:bg-slate-100 focus:bg-slate-100 active:bg-slate-100 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"

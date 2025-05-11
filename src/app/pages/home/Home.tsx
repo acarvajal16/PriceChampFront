@@ -25,8 +25,8 @@ function Home() {
     }, []);
 
     return (
-        <div className="bg-white h-full w-full">
-            <div className="flex fade-b-[19%] mb-2 ">
+        <div className="bg-white h-full w-full dark:bg-gray-900">
+            <div className="flex  mb-2 ">
                 <section className="w-full bg-center bg-cover bg-no-repeat bg-gradient bg-gray-700 bg-blend-multiply">
                     <div className="px-10 mx-auto max-w-screen-xl text-center py-16 lg:py-40">
                         <h1 className="mb-6 text-3xl font-extrabold tracking-tight leading-none text-white md:text-4xl lg:text-5xl">
@@ -67,7 +67,7 @@ function Home() {
                                     <input
                                         type="search"
                                         id="default-search"
-                                        className="w-[300px] block p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                        className="w-[300px] block p-4 ps-10 font-light text-sm text-gray-900  border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                         placeholder="Busca y compara..."
                                         required
                                         value={busqueda}
@@ -85,9 +85,10 @@ function Home() {
                     </div>
                 </section>
             </div>
-            <div className="flex flex-col bg-cover bg-blur bg-center w-full h-[600px]">
-                <div className="flex justify-center">
-                    <h1 className="font-radiobold text-3xl my-2 p-10">Productos Destacados</h1>
+            <div className="flex flex-col bg-cover bg-blur bg-center w-full h-[600px] dark:bg-gray-900">
+                <div className="flex flex-col justify-center items-center">
+                    <h1 className="font-radiobold text-3xl my-2 pt-10 dark:text-white">Productos Destacados</h1>
+                    <img src="line-deco.svg" alt="" className="h-1.5 w-[300px] fill-purple-500" />
                 </div >
                 <div className="w-full flex flex-nowrap overflow-x-auto scrollbar-hide scroll-smooth">
                     {
@@ -99,8 +100,13 @@ function Home() {
                     }
                 </div>
             </div>
-            <div className="relative w-full h-[340px] ml-7">
-                <img src="RegisterBanner.png" alt="Seccion Registrar" />
+            <div className="relative w-full h-[316px] ml-7 dark:bg-gray-900">
+                <img src="RegisterBanner.png" alt="Seccion Registrar" className="block dark:hidden w-full h-full object-cover" />
+                <img
+                    src="register-light.png"
+                    alt="Sección Registrar (Modo Oscuro)"
+                    className="hidden dark:block w-full h-full object-cover"
+                />
                 <button onClick={() => navigate(routes.register)} className="absolute bottom-20 right-50 cursor-pointer  bg-white rounded-3xl  py-1 px-4 hover:bg-black hover:text-white focus:ring-white ">
                     <p className=" font-radiobold ">
                         Únete aquí

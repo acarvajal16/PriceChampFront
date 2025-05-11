@@ -22,15 +22,15 @@ function Busqueda() {
     }, [get]);
 
     return (
-        <div className="flex relative justify-center items-center w-screen h-full">
-            <div className="bg-white flex place-self-start m-4 mt-10 h-96 w-[160px] text-center rounded-lg">
+        <div className="flex relative justify-center items-center w-screen h-full dark:bg-gray-600 ">
+            <div className="bg-white flex place-self-start m-4 mt-10 h-96 w-[160px] text-center rounded-lg dark:bg-gray-800">
                 <CategoryFilter/>
             </div>
-            <div className="flex-1 h-full py-10 flex flex-col gap-2">
-                <div className="h-10 py-1 px-1.5 mr-4  font-radiobold  text-xl">
+            <div className="flex-1 h-full py-10 flex flex-col gap-2 ">
+                <div className="h-10 py-1 px-1.5 mr-4  font-radiobold  text-xl dark:text-white">
                     Resultados de la búsqueda "{q}"
                 </div>
-                <div className="p-4 h-full grid grid-cols-4 gap-y-6 bg-gray-100 rounded-md mr-4">
+                <div className="p-4 h-full grid grid-cols-4 gap-y-6 bg-gray-100 dark:bg-gray-800  rounded-md mr-7">
                     {
                         productos.map(producto => (
                             <div>

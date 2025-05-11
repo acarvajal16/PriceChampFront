@@ -5,18 +5,11 @@ export default function CategoryFilter() {
 
 
     const categories = [
-        { id: "apple", name: "Apple", count: 56 },
-        { id: "fitbit", name: "Fitbit", count: 56 },
-        { id: "dell", name: "Dell", count: 56 },
-        { id: "asus", name: "Asus", count: 97, checked: true },
-        { id: "logitech", name: "Logitech", count: 97, checked: true },
-        { id: "msi", name: "MSI", count: 97, checked: true },
-        { id: "bosch", name: "Bosch", count: 176, checked: true },
-        { id: "sony", name: "Sony", count: 234 },
-        { id: "samsung", name: "Samsung", count: 76, checked: true },
-        { id: "canon", name: "Canon", count: 49 },
-        { id: "microsoft", name: "Microsoft", count: 45 },
-        { id: "razor", name: "Razor", count: 49 },
+        { id: "Falabella", name: "Falabella", count: 56 },
+        { id: "Mercado Libre", name: "Mercado Li..", count: 42 },
+        { id: "Precop", name: "Menor a", count: 56 },
+        { id: "asus", name: "", count: 97, checked: true },
+        
     ];
 
     return (
@@ -24,7 +17,7 @@ export default function CategoryFilter() {
             <button
                 type="button"
                 onClick={() => setOpen(!open)}
-                className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 inline-flex items-center"
+                className=" mx-6 my-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5.5 py-0.5 inline-flex items-center"
             >
                 Filtrar
                 <svg
@@ -43,9 +36,9 @@ export default function CategoryFilter() {
             </button>
 
             {open && (
-                <div className="absolute top-26 z-10 w-64 p-3 bg-white rounded-lg shadow dark:bg-gray-700">
+                <div className="absolute top-26 z-10 w-40 p-3 bg-white rounded-lg shadow dark:bg-gray-800">
                     <h6 className="mb-3 text-sm font-medium text-gray-900 dark:text-white">
-                        Categorías
+                        
                     </h6>
                     <ul className="space-y-2 text-sm">
                         {categories.map(({ id, name, count, checked }) => (
