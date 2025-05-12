@@ -1,4 +1,5 @@
 import { routes } from "@/app/router/routes";
+import { ApiClient } from "@/services/ApiClient";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -8,11 +9,16 @@ const SearchBar = () => {
     const navigate = useNavigate();
     const [busqueda, setBusqueda] = useState("");
 
+    const handleBuscar = () => {
+        ApiClient.saveSearchQuery(busqueda);
+        navigate(`${routes.busqueda}?q=${busqueda}`);
+    }
+
     return (
         <div className="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
             <form className="max-w-md mx-auto" onSubmit={(e) => {
                 e.preventDefault();
-                navigate(`${routes.busqueda}?q=${busqueda}`);
+                handleBuscar();
             }}>
                 <label htmlFor="default-search" className="mb-2 text-sm text-gray-900 sr-only dark:text-white">
                     Search

@@ -48,7 +48,8 @@ export function Register() {
             return;
         }
 
-        ApiClient.register(formData['correo'],formData['password'])
+        const nombre = `${formData['nombre_usuario']} ${formData['apellido_usuario']}`
+        ApiClient.register(nombre, formData['correo'], formData['password'])
             .then((res) => {
                 if(res.token) {
                     setUser(res.token);

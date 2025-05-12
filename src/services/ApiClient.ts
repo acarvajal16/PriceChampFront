@@ -1,13 +1,12 @@
-import { FavoritesResponse, LoginResponse, Producto, ProductosResponse, RegisterResponse, SearchHistoryResponse } from '@/interfaces/Api';
+import { FavoritesResponse, LoginResponse, Producto, ProductosResponse, RegisterResponse, SearchHistoryResponse, UserProfile } from '@/interfaces/Api';
 import axios from 'axios';
-import { UserProfile } from 'firebase/auth';
 
 export const api = axios.create({ baseURL: "http://localhost:3000" });
 
 export class ApiClient {
 
-    static async register(email: string, password: string): Promise<RegisterResponse> {
-        const { data } = await api.post<RegisterResponse>('/api/register', { email, password });
+    static async register(nombre: string, email: string, password: string): Promise<RegisterResponse> {
+        const { data } = await api.post<RegisterResponse>('/api/register', { nombre, email, password });
         return data;
     }
 

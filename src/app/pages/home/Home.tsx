@@ -18,7 +18,6 @@ function Home() {
 
         ApiClient.getRandomProductos()
             .then(res => {
-                console.log(res);
                 setProductos([...res.productos]);
             });
 
@@ -88,7 +87,7 @@ function Home() {
             <div className="flex flex-col bg-cover bg-blur bg-center w-full h-[600px] dark:bg-gray-900">
                 <div className="flex flex-col justify-center items-center">
                     <h1 className="font-radiobold text-3xl my-2 pt-10 dark:text-white">Productos Destacados</h1>
-                    <img src="line-deco.svg" alt="" className="h-1.5 w-[300px] fill-purple-500" />
+                    <img src="line-deco.svg" alt="" className="h-1.5 w-[300px] mb-7 fill-purple-500" />
                 </div >
                 <div className="w-full flex flex-nowrap overflow-x-auto scrollbar-hide scroll-smooth">
                     {

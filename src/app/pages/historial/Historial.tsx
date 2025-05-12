@@ -1,6 +1,20 @@
+import { HistoryQ } from "@/interfaces/Api";
+import { ApiClient } from "@/services/ApiClient";
 import Sidebar from "@/shared/components/SideBar";
+import { useEffect, useState } from "react";
+import moment from "moment";
 
 function Historial() {
+
+    const [historial, setHistorial] = useState<HistoryQ[]>([]);
+
+    useEffect(() => {
+        ApiClient.getSearchHistory()
+            .then((res) => {
+                setHistorial(res.searchHistory);
+            })
+    }, []);
+
     return (
         <div className="container max-w-full flex p-4 dark:bg-gray-600">
             <div>
@@ -22,27 +36,21 @@ function Historial() {
                                         <thead className="border-b border-neutral-200 font-medium dark:border-white/10">
                                             <tr>
                                                 <th scope="col" className="px-6 py-4">#</th>
-                                                <th scope="col" className="px-6 py-4">First</th>
-                                                <th scope="col" className="px-6 py-4">Last</th>
-                                                <th scope="col" className="px-6 py-4">Handle</th>
+                                                <th scope="col" className="px-6 py-4">Fecha</th>
+                                                <th scope="col" className="px-6 py-4">Busqueda</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {[
-                                                { id: 1, first: "Mark", last: "Otto", handle: "@mdo" },
-                                                { id: 2, first: "Jacob", last: "Thornton", handle: "@fat" },
-                                                { id: 3, first: "Larry", last: "Wild", handle: "@twitter" },
-                                            ].map(({ id, first, last, handle }) => (
+                                            {historial.map((registro, i) => (
                                                 <tr
-                                                    key={id}
+                                                    key={i}
                                                     className="border-b border-neutral-200 transition duration-300 ease-in-out hover:bg-neutral-100 dark:border-white/10 dark:hover:bg-neutral-600"
                                                 >
                                                     <td className="whitespace-nowrap px-6 py-4 font-medium">
-                                                        {id}
+                                                        {i}
                                                     </td>
-                                                    <td className="whitespace-nowrap px-6 py-4">{first}</td>
-                                                    <td className="whitespace-nowrap px-6 py-4">{last}</td>
-                                                    <td className="whitespace-nowrap px-6 py-4">{handle}</td>
+                                                    <td className="whitespace-nowrap px-6 py-4">{moment(registro.fecha).format("YYYY-MM-DD HH:mm")}</td>
+                                                    <td className="whitespace-nowrap px-6 py-4">{registro.q}</td>
                                                 </tr>
                                             ))}
                                         </tbody>
@@ -51,9 +59,7 @@ function Historial() {
                             </div>
                         </div>
                     </div>
-
                 </div>
-
             </div>
         </div>
     )

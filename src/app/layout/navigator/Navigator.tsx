@@ -37,7 +37,7 @@ function Navigator() {
                             <div className="flex items-center justify-center mr-4 space-x-3 md:space-x-0 rtl:space-x-reverse">
                                 <img onClick={() => navigate(routes.profile)} className="h-6 hover:scale-110 hover:cursor-pointer" src="user.svg" alt="user" />
                             </div>
-                            <div className="mx-2 cursor-pointer">
+                            <div className="mx-2  cursor-pointer">
                                 <ThemeProvider>
                                     <DMToggler/>
                                 </ThemeProvider>
@@ -68,7 +68,7 @@ function Navigator() {
                                     )
                                 }
                             </div>
-                            <div className="mr-2 cursor-pointer">
+                            <div className="mr-2 p-2 mb-1 cursor-pointer">
                                 <ThemeProvider>
                                     <DMToggler/>
                                 </ThemeProvider>

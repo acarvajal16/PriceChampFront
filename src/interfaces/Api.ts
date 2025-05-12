@@ -10,6 +10,8 @@ export interface LoginResponse {
     expiresIn: string;
 }
 
+export type HistoryQ = {fecha: Date, q: string}
+
 export interface UserProfile {
     uid: string;
     email: string;
@@ -19,11 +21,12 @@ export interface UserProfile {
         createdAt: string;
         lastSignIn: string;
     };
-    searchHistory: string[];
+    searchHistory: HistoryQ[];
     favorites: string[];
 }
 
 export interface Producto {
+    enlace: string
     imagen: string 
     precio: string
     producto: string
@@ -34,7 +37,7 @@ export interface ProductosResponse {
 }
 
 export interface SearchHistoryResponse {
-    searchHistory: string[];
+    searchHistory: HistoryQ[];
 }
 
 export interface FavoritesResponse {

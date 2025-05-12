@@ -1,3 +1,5 @@
+
+
 export const routes = {
     login: "/login",
     register: "/register",
@@ -6,5 +8,6 @@ export const routes = {
     ventas: "/ventas",
     busqueda: "/busqueda",
     favoritos: "/favoritos",
-    historial: "/historial"
+    historial: "/historial",
+    detalle: "/detalle"
 }

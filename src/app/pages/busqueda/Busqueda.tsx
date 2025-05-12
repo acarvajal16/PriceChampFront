@@ -30,7 +30,7 @@ function Busqueda() {
                 <div className="h-10 py-1 px-1.5 mr-4  font-radiobold  text-xl dark:text-white">
                     Resultados de la búsqueda "{q}"
                 </div>
-                <div className="p-4 h-full grid grid-cols-4 gap-y-6 bg-gray-100 dark:bg-gray-800  rounded-md mr-7">
+                <div className="p-4 h-full grid grid-cols-4 gap-y-6 bg-gray-200 dark:bg-gray-800  rounded-md mr-7">
                     {
                         productos.map(producto => (
                             <div>
