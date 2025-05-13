@@ -1,15 +1,15 @@
 //import { Spinner } from "@material-tailwind/react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 //import axios from "axios";
 
 interface GalleryProps {
     productName: string;
 }
 
-const Gallery: React.FC<GalleryProps> = ({ productName }) => {
+const Gallery: React.FC<GalleryProps> = () => {
     const [image, setImage] = useState(0);
-    const [imagenes, setImages] = useState<string[]>([]);
-    const [loading, setLoading] = useState(true);
+    const [imagenes, _setImages] = useState<string[]>([]);
+    const [_loading, _setLoading] = useState(true);
 
     /*useEffect(() => {
         const fetchImages = async () => {

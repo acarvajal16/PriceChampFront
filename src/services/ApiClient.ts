@@ -35,8 +35,8 @@ export class ApiClient {
         return data;
     }
 
-    static async getProducto(id: string): Promise<Producto> {
-        const { data } = await api.get<Producto>(`/api/productos/${id}`);
+    static async getProducto(nombre: string): Promise<Producto> {
+        const { data } = await api.get<Producto>(`/api/productos/${nombre}`);
         return data;
     }
 

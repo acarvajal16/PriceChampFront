@@ -30,6 +30,7 @@ export interface Producto {
     imagen: string 
     precio: string
     producto: string
+    from: string
 }
 
 export interface ProductosResponse {

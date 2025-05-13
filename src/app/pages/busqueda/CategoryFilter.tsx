@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function CategoryFilter() {
     const [open, setOpen] = useState(true);

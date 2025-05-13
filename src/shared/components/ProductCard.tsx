@@ -2,9 +2,12 @@ import { Producto } from "@/interfaces/Api"
 import useAuth from "../store/useAuth"
 import clsx from "clsx";
 import { ApiClient } from "@/services/ApiClient";
+import { useNavigate } from "react-router-dom";
+import { routes } from "@/app/router/routes";
 
 export const ProductCard = ({ producto }: { producto: Producto }) => {
 
+    const navigate = useNavigate();
     const { favoritos, addFavorite, removeFavorite } = useAuth();
 
     const favorito = favoritos[producto.producto];
@@ -52,12 +55,12 @@ export const ProductCard = ({ producto }: { producto: Producto }) => {
 
                     <div className="flex items-center justify-between w-full mt-2">
                         <span className="text-lg font-radio text-gray-900 dark:text-white">{producto.precio}</span>
-                        <a
-                            href="#"
-                            className=" mr-1 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-1.5 text-white text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                        <button
+                        onClick={() => navigate(`${routes.detalle}?producto=${producto.producto}`)}
+                            className="mr-1 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-1.5 text-white text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                         >
                             Ver
-                        </a>
+                        </button>
                     </div>
                 </div>
             </div>

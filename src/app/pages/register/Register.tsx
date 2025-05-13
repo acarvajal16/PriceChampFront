@@ -1,6 +1,5 @@
 import { routes } from "@/app/router/routes";
 import { ApiClient } from "@/services/ApiClient";
-import { UserService } from "@/services/firebase/auth";
 import useAuth from "@/shared/store/useAuth";
 import { ChangeEvent, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";

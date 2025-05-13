@@ -9,7 +9,7 @@ import { ThemeProvider } from "@/context/ThemeContext";
 
 function Navigator() {
 
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [_isMenuOpen, _setIsMenuOpen] = useState(false);
 
     const navigate = useNavigate();
 

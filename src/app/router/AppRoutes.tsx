@@ -31,6 +31,7 @@ function AppRoutes() {
                             <Route path={routes.ventas} element={<Ventas />} />
                             <Route path={routes.busqueda} element={<Busqueda />} />
                             <Route path={routes.historial} element={<Historial />} />
+                                <Route path={routes.detalle} element={<Detalle />} />
 
                             <Route path="*" element={<Navigate to={routes.home} />} />
                         </Route>
